@@ -40,6 +40,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   background-color: #f44336;
   color: white;
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 
 </style>
@@ -59,11 +74,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="/menu" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-cutlery fa-fw w3-margin-right"></i>MENU</a> 
     <a href="/profil" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>PROFIL</a> 
     <a href="/keranjang" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cart-plus fa-fw w3-margin-right"></i>KERANJANG</a>
-    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-shopping-basket fa-fw w3-margin-right"></i>SELESAI</a>
+    <a href="/selesai" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-shopping-basket fa-fw w3-margin-right"></i>SELESAI</a>
   </div>
   <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <a href="https://www.instagram.com/sushikey.bali/" class="fa fa-instagram w3-hover-opacity"></a>
   </div>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -71,65 +86,30 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
-<div class="w3-container">
-    <h1><b>Halaman Edit Data Lokasi Outlet</b></h1>
-<form action="{{route('editorderan',['id'=>$orderan->id])}}" method="GET">
-{{csrf_field()}}
-<div class="form-group">
-<label for="name" class="cols-sm-2 control-label">Pesanan</label>
-    <div class="cols-sm-10">
-        <div class="input-group">
-            <select name="pesanan"class="form-control" id="exampleFormControlSelect1" value="{{$orderan->pesanan}}">
-                <option value="Sushi Roll + Es Teh">Sushi Roll + Es Teh</option>
-                <option value="Sushi Original + Es Teh">Sushi Original + Es Teh</option>
-                <option value="Sushi Sashimi + Es Teh">Sushi Sashimi + Es Teh</option>
-            </select>
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <label for="email" class="cols-sm-2 control-label">Qty</label>
-    <div class="cols-sm-10">
-        <div class="quantity">
-        <input type='button' value='-' class='qtyminus minus' field='qty' />
-        <input type='text' name='qty' value="{{$orderan->qty}}" class='qty'  />
-        <input type='button' value='+' class='qtyplus plus' field='qty' />
-        </div>
-    </div>
-</div>
-    <label for="name" class="cols-sm-2 control-label">Harga</label>
-    <div class="cols-sm-10">
-        <div class="input-group">
-            <select name="harga" class="form-control" id="exampleFormControlSelect1" value="{{$orderan->harga}}">
-                <option value="25000">Rp 25.000,00</option>
-                <option value="22000">Rp 22.000,00</option>
-                <option value="23000">Rp 23.000,00</option>
-            </select>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary w3-red">SIMPAN</button>
-    </div>
 
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<!-- Your custom script here -->
-<script type="text/babel">
-jQuery(document).ready(($) => {
-        $('.quantity').on('click', '.plus', function(e) {
-            let $input = $(this).prev('input.qty');
-            let val = parseInt($input.val());
-            $input.val( val+1 ).change();
-        });
- 
-        $('.quantity').on('click', '.minus', 
-            function(e) {
-            let $input = $(this).next('input.qty');
-            var val = parseInt($input.val());
-            if (val > 0) {
-                $input.val( val-1 ).change();
-            } 
-        });
-    });
-</script>
+<header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>ORDERAN SELESAI</b></h1>
+    <div class="w3-section w3-bottombar ">
+    </div>
+    <table>
+  <tr>
+    <th>Tanggal</th>
+    <th>ID order</th>
+    <th>Pesanan</th>
+    <th>Lokasi</th>
+    <th>Keterangan</th>
+  </tr>
+  <tr>
+    <td>12 July 2023</td>
+    <td>KO001</td>
+    <td>Sushi Chicken + Es Teh</th>
+    <td>Ubud or Canggu</td>
+    <td>Proses or Selesai</td>
+  </tr>
+</table>
 
 </body>
 </html>

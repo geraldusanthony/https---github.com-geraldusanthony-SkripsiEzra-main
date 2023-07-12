@@ -74,6 +74,7 @@ tr:nth-child(even) {
     <a href="/menu" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-cutlery fa-fw w3-margin-right"></i>MENU</a> 
     <a href="/profil" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>PROFIL</a> 
     <a href="/keranjang" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cart-plus fa-fw w3-margin-right"></i>KERANJANG</a>
+    <a href="/selesai" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-shopping-basket fa-fw w3-margin-right"></i>SELESAI</a>
   </div>
   <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -127,7 +128,6 @@ tr:nth-child(even) {
     </div>
   </div>
 </div>
-
           <a href="/prosesviewdataorderan/{{$orderan->id}}" class="btn fa fa-file-text w3-blue"></a>
         </td>
         </tr>
@@ -135,7 +135,35 @@ tr:nth-child(even) {
       </div>
       <table class="table">
         <tr><h3>Total Harga <b> Rp. {{$total_orderan->totalorderan}},00 </b></h3>
-          <a href="/invoice" class="btn w3-red">INVOICE</a></td>
+        <button type="button" class="btn btn-default btn-lg w3-red" data-toggle="modal" data-target="#myModal1">Checkout</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Pembayaran</h4>
+        </div>
+        <div class="modal-body">
+          <p>Lokasi</p>
+          <div class="form-check">
+      <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
+      <label class="form-check-label" for="radio1">Ubud</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
+      <label class="form-check-label" for="radio2">Canggu</label>
+    </div>
+        </div>
+        <div class="modal-footer">
+          <a href="/invoice" class="btn btn-primary w3-green">Bayar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
         </tr>
       </div>
 </div>
