@@ -146,8 +146,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                                     </div>
                                     </div>
                                    
-                                   
-                                   
+                                                     
 <div class="modal-footer">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 <button type="submit" class="btn btn-primary">Submit</button>
