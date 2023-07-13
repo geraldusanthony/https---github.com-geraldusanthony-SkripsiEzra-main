@@ -183,47 +183,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </button>
     </div>
     <div class="w3-row-padding">
-    <table class="table">
-        <tr>
-        <th>Pesanan</th>
-        <th>Qty</th> 
-        <th>Harga</th> 
-        </tr>
-        @foreach($orderan as $orderan)
-        <td>{{$orderan->pesanan}}</td>
-        <td>{{$orderan->qty}}</td>
-        <td>{{$orderan->harga}}</td>
-        </tr>
-        @endforeach
-      </div>
     </div>
     
   </div>
   </div>
-
-<div id="output"></div>
-<!-- Load Babel -->
-<!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<!-- Your custom script here -->
-<script type="text/babel">
-jQuery(document).ready(($) => {
-        $('.quantity').on('click', '.plus', function(e) {
-            let $input = $(this).prev('input.qty');
-            let val = parseInt($input.val());
-            $input.val( val+1 ).change();
-        });
- 
-        $('.quantity').on('click', '.minus', 
-            function(e) {
-            let $input = $(this).next('input.qty');
-            var val = parseInt($input.val());
-            if (val > 0) {
-                $input.val( val-1 ).change();
-            } 
-        });
-    });
-</script>
-   
 </body>
 </html>
