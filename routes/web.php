@@ -75,6 +75,11 @@ Route::get('/koki','koki_controller@koki');
 //PELAYAN
 route::get('/orderonline','PelayanController@indexpelayan');
 route::get('/orderoffline','PelayanController@indexpelayanoffline');
+route::post('/addorderoffline','PelayanController@addorderoffline');
+route::get('/hapusorderoffline/{id}','PelayanController@hapusorderoffline');
+route::get('/editorderoffline/{id}','PelayanController@editorderoffline')->name('editorderoffline');
+route::get('/prosesviewdataorderoffline/{id}','PelayanController@findidorderoffline');
+
 
 //ADDORDERAN
 route::post('/addorderan','orderan_controller@addorderan');

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class orderan extends Model
+class Orderoffline extends Model
 {
     use HasFactory;
-    protected $table = 'orderan';
+    protected $table = 'orderoffline';
     protected $primarykey = 'id';
-    protected $fillable = ['pesanan','lokasi','qty','harga'];
+    protected $fillable = ['nama_pelanggan','no_meja','pesanan','qty','harga'];
 }

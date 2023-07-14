@@ -111,6 +111,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                    <label for="name" class="cols-sm-2 control-label">Lokasi Outlet</label>
+                                    <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radio1" name="lokasi" value="Ubud" checked>
+                                    <label class="form-check-label" for="radio1">Ubud</label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radio2" name="lokasi" value="Canggu">
+                                    <label class="form-check-label" for="radio2">Canggu</label>
+                                  </div>
+                                    </div>
+                                   
+                                    <div class="form-group">
                                         <label for="email" class="cols-sm-2 control-label">Qty</label>
                                         <div class="cols-sm-10">
                                             <div class="quantity">
@@ -133,6 +145,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                                                 </select>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                    
                                    
@@ -186,11 +199,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <table class="table">
         <tr>
         <th>Pesanan</th>
+        <th>Lokasi</th>
         <th>Qty</th> 
         <th>Harga</th> 
         </tr>
         @foreach($orderan as $orderan)
         <td>{{$orderan->pesanan}}</td>
+        <td>{{$orderan->lokasi}}</td>
         <td>{{$orderan->qty}}</td>
         <td>{{$orderan->harga}}</td>
         </tr>

@@ -98,6 +98,7 @@ tr:nth-child(even) {
     <table class="table">
         <tr>
         <th>Pesanan</th>
+        <th>Lokasi Outlet</th>
         <th>Qty</th> 
         <th>Harga satuan</th>
         <th>Harga</th> 
@@ -105,6 +106,7 @@ tr:nth-child(even) {
         </tr>
         @foreach($orderan as $orderan)
         <td>{{$orderan->pesanan}}</td>
+        <td>{{$orderan->lokasi}}</td>
         <td>{{$orderan->qty}}</td>
         <td>Rp.{{$orderan->harga}},00</td>
         <td>Rp.{{$orderan->harga * $orderan->qty}},00</td>
@@ -146,16 +148,7 @@ tr:nth-child(even) {
           <h4 class="modal-title">Pembayaran</h4>
         </div>
         <div class="modal-body">
-          <p>Lokasi</p>
-          <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
-      <label class="form-check-label" for="radio1">Ubud</label>
-    </div>
-    <div class="form-check">
-      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
-      <label class="form-check-label" for="radio2">Canggu</label>
-    </div>
-        </div>
+         <h4>Pastikan pesanan anda sudah sesuai sebelum melakukan pembayaran</h4>
         <div class="modal-footer">
           <a href="/invoice" class="btn btn-primary w3-green">Bayar</a>
         </div>
