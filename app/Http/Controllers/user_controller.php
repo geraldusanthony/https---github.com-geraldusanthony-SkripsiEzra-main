@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\orderan;
+use App\Models\tambahmakanan;
+
 
 class user_controller extends Controller
 {
     public function indexuser(){
-        $orderan = orderan::all();
-        return view('user.homepage',compact('orderan'));
+        $tambahmakanan = tambahmakanan::all();
+        return view('user.homepage',compact('tambahmakanan'));
     }
 
     public function indexminum(){
@@ -27,8 +29,8 @@ class user_controller extends Controller
     }
 
     public function menu(request $request){
-        $orderan = orderan::all();
-        return view('user.homepage', compact('orderan'));
+        $tambahmakanan = tambahmakanan::all();
+        return view('user.homepage', compact('tambahmakanan'));
     }
 
     public function keranjang(request $request){
@@ -45,6 +47,10 @@ class user_controller extends Controller
 
     public function selesai(){
         return view('user.selesai');
+    }
+
+    public function loginuser(request $request){
+        return view('user.loginuser');
     }
 
 }

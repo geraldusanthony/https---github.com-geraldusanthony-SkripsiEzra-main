@@ -49,7 +49,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-    <title>PELAYAN PAGE</title>
+    <title>KOKI PAGE</title>
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
     <!-- Sidebar/menu -->
@@ -58,14 +58,13 @@ tr:nth-child(even) {
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <h4><b>PELAYAN PAGE</b></h4>
-    <p class="w3-text-white">Welcome to pelayan page!</p>
+    <h4><b>KOKI PAGE</b></h4>
+    <p class="w3-text-white">Welcome to koki page!</p>
   </div>
   <div class="w3-bar-block">
-    <a href="orderonline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-book fa-fw w3-margin-right"></i>ORDER ONLINE</a> 
-    <a href="orderoffline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>ORDER OFFLINE</a> 
-    <a href="/keranjangoffline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cart-plus fa-fw w3-margin-right"></i>KERANJANG</a>
-    <a href="/loginpelayan" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
+  <a href="/koki" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-book fa-fw w3-margin-right"></i>DAFTAR ORDERAN ONLINE</a> 
+    <a href="/kokioffline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>DAFTAR ORDERAN OFFLINE</a> 
+    <a href="/loginkoki" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
   </div>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -73,31 +72,27 @@ tr:nth-child(even) {
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
-<div class="w3-container">
-    <h1><b>ORDERAN ONLINE</b></h1>
-    <div class="w3-section w3-bottombar ">
-    </div>
-    <table>
-  <tr>
-    <th>ID order</th>
-    <th>Pesanan</th>
-    <th>Lokasi</th>
-    <th>Action</th>
-  </tr>
-  @foreach($orderan as $orderan)
-  <tr>
-    <td>{{$orderan->id}}</td>
-    <td>{{$orderan->pesanan}}</th>
-    <td>{{$orderan->lokasi}}</td>
-    <td> <button type="button" class="btn btn-default btn-lg w3-red">Checkout</button></td>
-  </tr>
-  @endforeach
-</table>
 
 <header id="">
 
-    <div class="w3-container">
-   
+<div class="w3-row-padding">
+<div class="w3-container">
+    <h1><b>Tabel Daftar Orderan Offline</b></h1>
+    <table class="table">
+        <tr>
+        <th>Nama Pelanggan</th>
+        <th>Nomor Meja</th>
+        <th>Pesanan</th> 
+        <th>Qty</th>
+        </tr>
+        @foreach($Orderoffline as $orderoffline)
+        <tr>
+          <td>{{$orderoffline->nama_pelanggan}}</td>
+          <td>{{$orderoffline->no_meja}}</td>
+          <td>{{$orderoffline->pesanan}}</td>
+          <td>{{$orderoffline->qty}}</td>
+        </tr>
+        @endforeach
   </header>
 
   <!-- First Photo Grid-->

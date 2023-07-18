@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('kategori');
             $table->string('no_produk');
             $table->string('nama_prdk');
+            $table->string('komposisi');
             $table->string('harga');
             $table->string('images');
             $table->timestamps();
