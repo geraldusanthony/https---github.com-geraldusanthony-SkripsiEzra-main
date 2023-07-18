@@ -93,60 +93,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Orderan</h5>
+  <h5 class="modal-title" id="exampleModalLabel">WARNING!</h5>
 </div>
 <div class="modal-body">
-    <form action="/addorderan" method="POST">
-      {{csrf_field()}}
-      <div class="form-group">
-                                    <div class="form-group">
-                                    <label for="name" class="cols-sm-2 control-label">Pesanan</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <select name="pesanan"class="select2 form-control" id="exampleFormControlSelect1">
-                                                <option></option>
-                                                
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <label for="name" class="cols-sm-2 control-label">Lokasi Outlet</label>
-                                    <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio1" name='lokasi' value="Ubud" checked>
-                                    <label class="form-check-label" for="radio1">Ubud</label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="radio2" name='lokasi' value="Canggu">
-                                    <label class="form-check-label" for="radio2">Canggu</label>
-                                  </div>
-                                    </div>
-                                   
-                                    <div class="form-group">
-                                        <label for="email" class="cols-sm-2 control-label">Qty</label>
-                                        <div class="cols-sm-10">
-                                            <div class="quantity">
-                                            <input type='button' value='-' class='qtyminus minus' field='qty' />
-                                            <input type='text' name='qty' value='1' class='qty' />
-                                            <input type='button' value='+' class='qtyplus plus' field='qty' />
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
-                                        <label for="name" class="cols-sm-2 control-label">Harga</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                              
-                                                <select name="harga"class="form-control" id="exampleFormControlSelect1">
-                                                    <option value="25000">Rp 25.000,00</option>
-                                                    <option value="22000">Rp 22.000,00</option>
-                                                    <option value="23000">Rp 23.000,00</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+    <h4><b>Anda hanya bisa memilih sekali</b></h4><br>
+    <h4>Selanjutnya menu dapat anda lihat dan tambah jumlah di halaman keranjang </h4>
                                    
                                    
                                    
@@ -168,7 +119,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-white">
       <p><b>{{$tambahmakanan->nama_prdk}}</b></p>
       <p>{{$tambahmakanan->komposisi}}</p>
-      <p>{{$tambahmakanan->harga}}</p>
+      <p>Rp. {{$tambahmakanan->harga}},00</p>
       <div class="w3-row-padding w3-center">
     <button type="button" class="button button3" data-toggle="modal" data-target="#exampleModal">
         Add to Chard

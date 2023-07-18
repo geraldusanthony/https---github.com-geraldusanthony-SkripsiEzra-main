@@ -31,6 +31,8 @@ route::get('/landingpage','landingpage_Controller@landingpage');
 route::get('/profil','user_controller@profil');
 route::get('/menu','user_controller@menu');
 route::get('/keranjang','user_controller@keranjang');
+route::get('/editkeranjang/{id}','user_controller@editkeranjang')->name('editkeranjang');
+route::get('/prosesviewdatakeranjang/{id}','user_controller@findidkeranjang');
 route::get('/invoice','user_controller@invoice');
 route::get('/selesai','user_controller@selesai');
 route::get('/loginuser','user_controller@loginuser');
