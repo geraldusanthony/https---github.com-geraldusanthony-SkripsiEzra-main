@@ -60,6 +60,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="/profil" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>PROFIL</a> 
     <a href="/keranjang" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cart-plus fa-fw w3-margin-right"></i>KERANJANG</a>
     <a href="/selesai" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-shopping-basket fa-fw w3-margin-right"></i>SELESAI</a>
+    <a href="/loginuser" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
   </div>
   <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -92,48 +93,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Orderan</h5>
+  <h5 class="modal-title" id="exampleModalLabel">WARNING!</h5>
 </div>
 <div class="modal-body">
-    <form action="/addorderan" method="POST">
-      {{csrf_field()}}
-      <div class="form-group">
-                                    <div class="form-group">
-                                    <label for="name" class="cols-sm-2 control-label">Pesanan</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <select name="pesanan"class="form-control" id="exampleFormControlSelect1">
-                                                    <option value="Sushi Roll + Es Teh">Sushi Roll + Es Teh</option>
-                                                    <option value="Sushi Original + Es Teh">Sushi Original + Es Teh</option>
-                                                    <option value="Sushi Sashimi + Es Teh">Sushi Sashimi + Es Teh</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email" class="cols-sm-2 control-label">Qty</label>
-                                        <div class="cols-sm-10">
-                                            <div class="quantity">
-                                            <input type='button' value='-' class='qtyminus minus' field='qty' />
-                                            <input type='text' name='qty' value='1' class='qty' />
-                                            <input type='button' value='+' class='qtyplus plus' field='qty' />
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
-                                        <label for="name" class="cols-sm-2 control-label">Harga</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                              
-                                                <select name="harga"class="form-control" id="exampleFormControlSelect1">
-                                                    <option value="25000">Rp 25.000,00</option>
-                                                    <option value="22000">Rp 22.000,00</option>
-                                                    <option value="23000">Rp 23.000,00</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+    <h4><b>Anda hanya bisa memilih sekali</b></h4><br>
+    <h4>Selanjutnya menu dapat anda lihat dan tambah jumlah di halaman keranjang </h4>
                                    
                                    
                                    
@@ -149,43 +113,54 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <!-- ENDMODAL -->
 
   <!-- First Photo Grid-->
-  <div class="w3-row-padding">
+  @foreach($tambahmakanan as $tambahmakanan)
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="asset\images\sushi_3.jpg" alt="" style="width:100%">
+      <div><img class="rounded-circle mt-5" width="100px" src="{{asset('makanan/'.$tambahmakanan->images)}}" style="width:100%"></div>
       <div class="w3-container w3-white">
-        <p><b>Sushi Roll + Es Teh</b></p>
-        <p>Paket lengkap sushi roll dengan es teh</p>
-        <p>Rp 25.000,00</p>
-        
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <img src="asset\images\sushi_3.jpg" alt="" style="width:100%">
-      <div class="w3-container w3-white">
-        <p><b>Sushi Original + Es Teh</b></p>
-        <p>Paket lengkap sushi original dengan es teh</p>
-        <p>Rp 22.000,00</p>
-       
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-      <img src="asset\images\sushi_3.jpg" alt="" style="width:100%">
-      <div class="w3-container w3-white">
-        <p><b>Sushi Sashimi + Es Teh</b></p>
-        <p>Paket lengkap sushi sashimi dengan es teh</p>
-        <p>Rp 23.000,00</p>
-        
-      </div>
-    </div>
-    <div class="w3-row-padding w3-center">
+      <p><b>{{$tambahmakanan->nama_prdk}}</b></p>
+      <p>{{$tambahmakanan->komposisi}}</p>
+      <p>Rp {{$tambahmakanan->harga}}</p>
+      <div class="w3-row-padding w3-center">
     <button type="button" class="button button3" data-toggle="modal" data-target="#exampleModal">
-        Order
+        Add to Chard
     </button>
     </div>
-    <div class="w3-row-padding">
+      </div>
     </div>
+    @endforeach
+    
+    
     
   </div>
   </div>
+
+<div id="output"></div>
+<!-- Load Babel -->
+<!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+jQuery(document).ready(($) => {
+        $('.quantity').on('click', '.plus', function(e) {
+            let $input = $(this).prev('input.qty');
+            let val = parseInt($input.val());
+            $input.val( val+1 ).change();
+        });
+ 
+        $('.quantity').on('click', '.minus', 
+            function(e) {
+            let $input = $(this).next('input.qty');
+            var val = parseInt($input.val());
+            if (val > 0) {
+                $input.val( val-1 ).change();
+            } 
+        });
+    });
+</script>
+
+<script>
+    $('.select2').select2();
+</script>
+   
 </body>
 </html>

@@ -62,9 +62,10 @@ tr:nth-child(even) {
     <p class="w3-text-white">Welcome to koki page!</p>
   </div>
   <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-book fa-fw w3-margin-right"></i>DAPUR</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>FINISH</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
+    <a href="/koki" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-book fa-fw w3-margin-right"></i>DAFTAR ORDERAN ONLINE</a> 
+    <a href="/kokioffline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>DAFTAR ORDERAN OFFLINE</a> 
+    <a href="/orderselesaikoki" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-shopping-basket w3-margin-right"></i>ORDERAN SELESAI</a> 
+    <a href="/loginkoki" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
   </div>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -76,13 +77,25 @@ tr:nth-child(even) {
 <header id="">
 
     <div class="w3-container">
-    <h1><b>Tabel Daftar Orderan</b></h1>
+    <h1><b>Tabel Daftar Orderan Online</b></h1>
     <table class="table">
-        <tr>
-        <th>No Order</th>
-        <th>Action</th> 
-        <th>Status Orderan</th>
-        </tr>
+    <tr>
+    <th>ID order</th>
+    <th>Tanggal</th>
+    <th>Pesanan</th>
+    <th>Qty</th>
+    <th>Lokasi</th>
+    <th>Action</th>
+  </tr>
+  @foreach($orderan as $orderan)
+  <tr>
+    <td>{{$orderan->id}}</td>
+    <td>{{$orderan->pesanan}}</th>
+    <td>Qty</td>
+    <td>{{$orderan->lokasi}}</td>
+    <td>Action</td>
+  </tr>
+  @endforeach
     </table>
     </div>
   </header>

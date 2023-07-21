@@ -127,6 +127,7 @@ class AdminController extends Controller
         $tambahmakanan->kategori = $request->input('kategori');
         $tambahmakanan->no_produk = $request->input('no_produk');
         $tambahmakanan->nama_prdk = $request->input('nama_prdk');
+        $tambahmakanan->qty= $request->input('qty');
         $tambahmakanan->harga = $request->input('harga');
         $tambahmakanan->images = $request->input('images'); 
         $tambahmakanan->save();
@@ -142,5 +143,16 @@ class AdminController extends Controller
         return view('admin.editmakanan',$data);
     }
 
+    public function datacust(){
+        return view('admin.datacust');
+    }
+
+    public function dashboard(){
+        return view('admin.dashboard');
+    }
+
+    public function riwayatdt(){
+        return view('admin.riwayatdt');
+    }
 
 }

@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orderan', function (Blueprint $table) {
+        Schema::create('orderoffline', function (Blueprint $table) {
             $table->increments('id');
             $table->string('pesanan');
-            $table->string('lokasi');
-            $table->bigInteger('qty');
-            $table->bigInteger('harga');
+            $table->string('qty');
+            $table->string('harga');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderan');
+        Schema::dropIfExists('orderoffline');
     }
 };

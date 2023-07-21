@@ -11,6 +11,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 .button {
@@ -71,7 +78,7 @@ tr:nth-child(even) {
 }
 
 </style>
-    <title>ADMIN PAGE</title>
+<title>ORDER PAGE</title>
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
     <!-- Sidebar/menu -->
@@ -80,8 +87,8 @@ tr:nth-child(even) {
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <h4><b>ADMIN PAGE</b></h4>
-    <p class="w3-text-white">Welcome to admin page!</p>
+    <h4><b>ORDER PAGE</b></h4>
+    <p class="w3-text-white">Welcome to order page!</p>
   </div>
 </nav>
 <nav class="w3-sidebar w3-collapse w3-red w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -89,17 +96,15 @@ tr:nth-child(even) {
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <h4><b>ADMIN PAGE</b></h4>
-    <p class="w3-text-white">Welcome to admin page!</p>
+    <h4><b>ORDER PAGE</b></h4>
+    <p class="w3-text-white">Welcome to order page!</p>
   </div>
   <div class="w3-bar-block">
-    <a href="/dashboard" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-cube fa-fw w3-margin-right"></i>DASHBOARD</a>
-    <a href="homeadmin" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-white"><i class="fa fa-area-chart fa-fw w3-margin-right"></i>DATA MAKANAN</a> 
-    <a href="tambahlokasi" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map-marker fa-fw w3-margin-right"></i>DATA LOKASI</a> 
-    <a href="tambahpegawai" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-male fa-fw w3-margin-right"></i>DATA PEGAWAI</a>
-    <a href="/datacust" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-group fa-fw w3-margin-right"></i>DATA CUSTOMER</a>
-    <a href="/riwayatdt" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-folder fa-fw w3-margin-right"></i>REPORT</a>
-    <a href="/loginkaryawan" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
+    <a href="orderoffline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>ORDER OFFLINE</a> 
+    <a href="orderonline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>ORDER ONLINE</a>
+    <a href="/keranjangoffline" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cart-plus fa-fw w3-margin-right"></i>KERANJANG</a>
+    <a href="/selesaiorderall" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-shopping-basket fa-fw w3-margin-right"></i>SELESAI</a>
+    <a href="/loginpelayan" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw w3-margin-right"></i>LOGOUT</a>
   </div>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -108,42 +113,29 @@ tr:nth-child(even) {
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
 <div class="w3-container">
-    <h1><b>Halaman Edit Data Lokasi Outlet</b></h1>
+    <h1><b>Orderan Selesai</b></h1>
   <header class="w3-container">
-    <div class="modal-body">
-    <form action="{{route('editlokasi',['id'=>$data_lokasi->id])}}" method="GET">
-          {{csrf_field()}}
-            <div class="form-group">
-              <label for="exampleInputEmail1">Kode</label>
-              <input name="kode"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_lokasi->kode}}">
-           </div>
-           <div class="form-group">
-              <label for="exampleInputEmail1">Lokasi Outlet</label>
-              <input name="nama_lokasi"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_lokasi->nama_lokasi}}">
-           </div>
-           <div class="form-group">
-              <label for="exampleInputEmail1">Nama Jalan</label>
-              <input name="jalan"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_lokasi->jalan}}" >
-           </div>
-          
-
-        <div class="modal-footer">
-        <button type="submit" class="btn btn-primary w3-orange">SUBMIT</button>
-      </form>
-  </header>
-</div>    
+  <div class="w3-section w3-bottombar w3-padding-6">
 </div>
+<h4><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari Kategori" title="Type in a name"></h4>
 
-
-     
- 
-
-
-
-
- <!-- First Photo Grid-->
- 
-</div> 
-
+<table>
+  <tr>
+    <th>No</th>
+    <th>Tanggal</th>
+    <th>Kategori</th>
+    <th>Pemesan</th>
+    <th>Detail Makanan</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>01</td>
+    <td>22/12/1999</td>
+    <td>ONN/OFF</td>
+    <td>Nama</td>
+    <td>Detail Order</td>
+    <td>Dari Koki</td>
+  </tr>
+</table>
 </body>
 </html>
