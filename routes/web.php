@@ -36,6 +36,8 @@ route::get('/prosesviewdatakeranjang/{id}','user_controller@findidkeranjang');
 route::get('/invoice','user_controller@invoice');
 route::get('/selesai','user_controller@selesai');
 route::get('/loginuser','user_controller@loginuser');
+route::post('/addpembayaran','user_Controller@addpembayaran');
+route::get('/hapusmakanan','user_controller@hapusmakanan');
 
 //ADMIN
 route::get('/homeadmin','AdminController@indexadmin');

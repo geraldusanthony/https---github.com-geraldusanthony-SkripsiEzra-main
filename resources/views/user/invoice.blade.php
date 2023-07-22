@@ -196,6 +196,19 @@ tr:hover .cut { opacity: 1; }
 				@endforeach
 				</tbody>
 			</table>
+			<table class="inventory">
+				<thead>
+					<tr>
+						<th><span contenteditable>Metode Pembayaran</span></th>
+					</tr>
+				</thead>
+				<tbody>
+				</tr>
+				@foreach($pembayaran as $pembayaran)
+				<td>{{$pembayaran->metode}}</td>
+				@endforeach
+				</tbody>
+			</table>
 			<table class="balance">
 				<tr>
 					<th><span contenteditable>Total</span></th>

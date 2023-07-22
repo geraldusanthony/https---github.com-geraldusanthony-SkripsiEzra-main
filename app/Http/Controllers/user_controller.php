@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\orderan;
 use App\Models\tambahmakanan;
+use App\Models\Pembayaran;
 
 
 class user_controller extends Controller
@@ -36,7 +37,7 @@ class user_controller extends Controller
     public function keranjang(request $request){
         $orderan = orderan::all();
         $tambahmakanan = tambahmakanan::all();
-        $total_orderan = orderan::selectraw("sum(harga*qty) as totalorderan")->first();
+        $total_orderan = tambahmakanan::selectraw("sum(harga*qty) as totalorderan")->first();
         return view('user.simpanmenu',compact('orderan','total_orderan','tambahmakanan'));
     }
 
@@ -53,14 +54,20 @@ class user_controller extends Controller
             'title' => 'tambahmakanan',
             'tambahmakanan' => $tambahmakanan
         ];
-        return view('user.simpanmenu',$data);
+        return view('user.editqty',$data);
+    }
+
+    public function hapusmakanan($id){
+        tambahmakanan::where('id',$id)->delete();
+        return redirect()->back();
     }
 
 
     public function invoice(request $request){
         $tambahmakanan = tambahmakanan::all();
+        $pembayaran = Pembayaran::all();
         $total_orderan = tambahmakanan::selectraw("sum(harga*qty) as totalorderan")->first();
-        return view('user.invoice',compact('tambahmakanan','total_orderan'));
+        return view('user.invoice',compact('tambahmakanan','total_orderan','pembayaran'));
     }
 
     public function selesai(){
@@ -69,6 +76,11 @@ class user_controller extends Controller
 
     public function loginuser(request $request){
         return view('user.loginuser');
+    }
+
+    public function addpembayaran(request $request){
+        Pembayaran::create($request->all());
+        return redirect('invoice')->with('sukses','penambahan telah berhasil!');
     }
 
 }
