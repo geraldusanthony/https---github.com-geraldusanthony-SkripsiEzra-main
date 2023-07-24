@@ -104,7 +104,7 @@ tr:nth-child(even) {
         <th>Total Harga per Menu</th>
         <th>Edit QTY</th>
         <th>Simpan</th>
-        <th>Hapus</th>
+        <th style="display:none">Hapus</th>
         </tr>
         @foreach($tambahmakanan as $tambahmakanan)
         <td>{{$tambahmakanan->nama_prdk}}</td>
@@ -129,7 +129,7 @@ tr:nth-child(even) {
 </td>
 </form>
   </td>
-  <td><a href="/hapusmakanan/{{$tambahmakanan->id}}" class="btn fa fa-trash w3-red"></a></td>
+  <td style="display:none"><a href="/hapusmakanan/{{$tambahmakanan->id}}" class="btn fa fa-trash w3-red"></a></td>
         </tr>
         @endforeach
       </div>
