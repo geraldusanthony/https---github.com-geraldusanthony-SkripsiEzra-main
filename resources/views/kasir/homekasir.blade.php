@@ -115,6 +115,23 @@ tr:nth-child(even) {
         <tr><h3>Total Harga <b> Rp {{$total_orderan->totalorderan}},00 </b></h3>
         <a href="/downloadPDF/cetakinvoice"><button type="button" class="btn btn-default btn-lg w3-red">Cetak Invoice</button></a>
 
+        <form method="post" action="/kembalian">		
+        {{csrf_field()}}	
+			<input type="text" name="bil_1" class="bil" autocomplete="off" placeholder="Masukkan Uang Bayar">
+			<input type="text" name="bil_2" class="bil" autocomplete="off" value="{{$total_orderan->totalorderan}}" placeholder="Masukkan Total Belanja">
+			<select class="opt" name="operasi">
+				<option value="kurang">-</option>
+			</select>
+			<button type="submit" class="btn btn-info">Hasil</button>								
+		</form>
+    <div class="w3-container">
+      @if(session('info'))
+      <div class="alert alert-info">
+        {{session('info')}}
+      </div>
+      @endif
+    </div>
+
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <!-- Your custom script here -->
 <script type="text/babel">
